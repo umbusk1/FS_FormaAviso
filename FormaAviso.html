@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notificación de Lead</title>
+    </style>
+    	.umbusk-section {
+		  margin-top: 15px;
+		}
+
+		.umbusk-link {
+		  text-decoration: none;
+		  display: inline-block;
+		}
+
+		.umbusk-logo {
+		  max-width: 60px;
+		  height: auto;
+		  opacity: 0.8;
+		  transition: opacity 0.3s ease;
+		}
+
+		.umbusk-logo:hover {
+		  opacity: 1;
+		}
+
+		.vibe-text {
+		  margin-top: 8px;
+		  font-size: 11px;
+		  color: #888;
+		  font-style: italic;
+		  letter-spacing: 0.5px;
+		}
+
+    </style>
+</head>
+<body style="font-family: Arial, sans-serif; margin: 0; padding: 20px; background-color: #f5f5f5;">
+    <div style="max-width: 700px; margin: 0 auto; background-color: white; border-radius: 10px; padding: 30px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+        <!-- Header simplificado -->
+        <div style="background-color: #ff4444; color: white; padding: 20px; border-radius: 5px; margin-bottom: 25px; text-align: center;">
+            <h2 style="margin: 0 0 15px 0; font-size: 24px;">
+                ⚡ NUEVO LEAD - ACCIÓN URGENTE ⚡
+            </h2>
+            <p style="margin: 0; font-size: 15px; line-height: 1.5;">
+                <strong>¡Responder rápido contribuye a convertir con mayor probabilidad de éxito a un cliente potencial en uno real!</strong><br>
+                Si respondes en: <strong>&lt; 5 minutos</strong> = 80%; <strong>&lt; 30 minutos</strong> = 50%; <strong>&gt; 1 hora</strong> = 10%
+            </p>
+        </div>
+
+        <!-- Información del lead con botón de llamada -->
+        <div style="background-color: #f8f9fa; padding: 20px; border-radius: 5px; margin-bottom: 25px;">
+            <div style="display: flex; align-items: center; justify-content: space-between;">
+                <!-- Datos del cliente (lado izquierdo) -->
+                <div style="flex: 1; margin-right: 20px;">
+                    <h3 style="color: #333; margin-top: 0;">Datos del Cliente:</h3>
+                    <table style="width: 100%; border-collapse: collapse;">
+                        <tr>
+                            <td style="padding: 10px 0; width: 35%;"><strong>Nombre:</strong></td>
+                            <td style="padding: 10px 0; font-size: 16px; color: #2c3e50;">{{nombre}}</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px 0;"><strong>Teléfono:</strong></td>
+                            <td style="padding: 10px 0; font-size: 16px; color: #2c3e50;">{{telefono}}</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px 0;"><strong>Curso:</strong></td>
+                            <td style="padding: 10px 0; font-size: 16px; color: #2c3e50;">{{curso}}</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px 0;"><strong>Hora:</strong></td>
+                            <td style="padding: 10px 0; font-size: 16px; color: #2c3e50;">{{timestamp}}</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <!-- Botón de llamada (lado derecho) -->
+                <div style="text-align: center; padding: 20px; min-width: 180px;">
+                    <a href="tel:{{telefono_limpio}}"
+                       style="display: inline-block; background-color: #3b82f6; color: white; padding: 15px 30px; text-decoration: none; border-radius: 50px; font-size: 16px; font-weight: bold; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                        📞 Llamar Ahora
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Título para opciones de WhatsApp -->
+        <div style="text-align: center; margin-bottom: 25px;">
+            <h3 style="color: #333; font-size: 18px; margin: 0;">O envía por WhatsApp una respuesta por escrito haciendo click en:</h3>
+        </div>
+
+        <!-- Opción 1: Ultra Rápida -->
+        <div style="background-color: #fce7f3; border: 2px solid #ec4899; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
+            <div style="text-align: center;">
+                <a href="https://wa.me/{{telefono_limpio}}?text=Hola%20{{nombre_encoded}}%21%20Soy%20%5BTU_NOMBRE%5D.%20Te%20puedo%20llamar%20ahora%20mismo%20sobre%20{{curso_encoded}}%3F"
+                   style="display: inline-block; background-color: #25D366; color: white; padding: 12px 35px; text-decoration: none; border-radius: 50px; font-size: 16px; font-weight: bold; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                    <span style="font-size: 18px;">💬</span> Ultra Rápida
+                </a>
+                <div style="background-color: white; margin-top: 15px; padding: 12px; border-radius: 5px; border-left: 4px solid #ec4899;">
+                    <p style="margin: 0; color: #6b7280; font-size: 13px;"><strong>El cliente verá:</strong></p>
+                    <p style="margin: 5px 0 0 0; color: #374151; font-size: 14px; font-style: italic;">
+                        "Hola {{nombre}}! Soy [TU_NOMBRE]. Te puedo llamar ahora mismo sobre {{curso}}?"
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Opción 2: Estándar -->
+        <div style="background-color: #f0fdf4; border: 2px solid #25D366; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
+            <div style="text-align: center;">
+                <a href="https://wa.me/{{telefono_limpio}}?text=Hola%20{{nombre_encoded}}%21%20Soy%20%5BTU_NOMBRE%5D%20de%20%5BEMPRESA%5D.%20Vi%20que%20solicitaste%20informaci%C3%B3n%20sobre%20{{curso_encoded}}.%20%C2%BFEn%20qu%C3%A9%20puedo%20ayudarte%3F"
+                   style="display: inline-block; background-color: #25D366; color: white; padding: 12px 35px; text-decoration: none; border-radius: 50px; font-size: 16px; font-weight: bold; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                    <span style="font-size: 18px;">💬</span> Estándar
+                </a>
+                <div style="background-color: white; margin-top: 15px; padding: 12px; border-radius: 5px; border-left: 4px solid #25D366;">
+                    <p style="margin: 0; color: #6b7280; font-size: 13px;"><strong>El cliente verá:</strong></p>
+                    <p style="margin: 5px 0 0 0; color: #374151; font-size: 14px; font-style: italic;">
+                        "Hola {{nombre}}! Soy [TU_NOMBRE] de [EMPRESA]. Vi que solicitaste información sobre {{curso}}. ¿En qué puedo ayudarte?"
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Opción 3: Luego, luego -->
+        <div style="background-color: #fef3c7; border: 2px solid #f59e0b; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
+            <div style="text-align: center;">
+                <a href="https://wa.me/{{telefono_limpio}}?text=Hola%20{{nombre_encoded}}%21%20Gracias%20por%20tu%20inter%C3%A9s%20en%20{{curso_encoded}}.%20Estoy%20atendiendo%20otro%20cliente%2C%20te%20contacto%20en%2015%20minutos.%20%C2%BFTe%20parece%20bien%3F"
+                   style="display: inline-block; background-color: #25D366; color: white; padding: 12px 35px; text-decoration: none; border-radius: 50px; font-size: 16px; font-weight: bold; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                    <span style="font-size: 18px;">💬</span> Luego, luego
+                </a>
+                <div style="background-color: white; margin-top: 15px; padding: 12px; border-radius: 5px; border-left: 4px solid #f59e0b;">
+                    <p style="margin: 0; color: #6b7280; font-size: 13px;"><strong>El cliente verá:</strong></p>
+                    <p style="margin: 5px 0 0 0; color: #374151; font-size: 14px; font-style: italic;">
+                        "Hola {{nombre}}! Gracias por tu interés en {{curso}}. Estoy atendiendo otro cliente, te contacto en 15 minutos. ¿Te parece bien?"
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Opción 4: Agendar -->
+        <div style="background-color: #eff6ff; border: 2px solid #3b82f6; border-radius: 10px; padding: 20px; margin-bottom: 25px;">
+            <div style="text-align: center;">
+                <a href="https://wa.me/{{telefono_limpio}}?text=Hola%20{{nombre_encoded}}%21%20Soy%20%5BTU_NOMBRE%5D%20de%20%5BEMPRESA%5D.%20%C2%BFTienes%205%20minutos%20ahora%20para%20hablar%20sobre%20{{curso_encoded}}%3F%20Si%20no%2C%20dime%20qu%C3%A9%20horario%20te%20conviene%20mejor."
+                   style="display: inline-block; background-color: #25D366; color: white; padding: 12px 35px; text-decoration: none; border-radius: 50px; font-size: 16px; font-weight: bold; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                    <span style="font-size: 18px;">💬</span> Agendar
+                </a>
+                <div style="background-color: white; margin-top: 15px; padding: 12px; border-radius: 5px; border-left: 4px solid #3b82f6;">
+                    <p style="margin: 0; color: #6b7280; font-size: 13px;"><strong>El cliente verá:</strong></p>
+                    <p style="margin: 5px 0 0 0; color: #374151; font-size: 14px; font-style: italic;">
+                        "Hola {{nombre}}! Soy [TU_NOMBRE] de [EMPRESA]. ¿Tienes 5 minutos ahora para hablar sobre {{curso}}? Si no, dime qué horario te conviene mejor."
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer con logo Umbusk -->
+        <div style="text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid #e5e7eb;">
+    	  <div class="umbusk-section">
+		    <a href="https://umbusk.com" target="_blank" class="umbusk-link">
+		      <img src="https://github.com/umbusk1/Monte_Luna/blob/main/Logo_BC1_Oreo_Tilted_with_name_only.png?raw=true"
+			       alt="Umbusk, LLC"
+	     			class="umbusk-logo">
+		    </a>
+		    </br>
+		    <div class="vibe-text">Vibe-coded</div>
+		  </div>
+        </div>
+</body>
+</html>
